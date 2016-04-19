@@ -1,11 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  owner_id: 
-  name: MyString
-  notes: MyText
 
-two:
-  owner_id: 
-  name: MyString
-  notes: MyText
+moose_osborne:
+  owner: russell
+  name: Moose
+  notes: Poodle
+
+henri:
+  owner: scout
+  name: Henri
+  notes: Poodle

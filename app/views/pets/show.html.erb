@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Health Record for <%= @pet.name %></h1>
+
 <p>
   <strong>Owner:</strong>
-  <%= @pet.owner %>
+  <%= @pet.owner.name %>
 </p>
 
 <p>
@@ -15,5 +17,21 @@
   <%= @pet.notes %>
 </p>
 
-<%= link_to 'Edit', edit_pet_path(@pet) %> |
-<%= link_to 'Back', pets_path %>
+<%= link_to 'Add Visit', new_pet_visit_path(@pet), class: 'waves-effect waves-light btn' %>
+
+<%= link_to 'Edit', edit_pet_path(id: @pet), class: 'waves-effect waves-light btn' %>
+<%= link_to 'Back', owner_pets_path(@pet.owner), class: 'waves-effect waves-teal btn-flat'%>
+
+<table class="striped">
+  <thead>
+    <th>
+      Notes
+    </th>
+    <th>
+      When
+    </th>
+  </thead>
+  <tbody>
+    <%= render @pet.visits %>
+  </tbody>
+</table>

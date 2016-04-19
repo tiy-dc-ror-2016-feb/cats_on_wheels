@@ -17,9 +17,9 @@
   </div>
   <div class="field">
     <%= f.label :notes %><br>
-    <%= f.text_area :notes %>
+    <%= f.text_area :notes, class: 'materialize-textarea' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit  options = { class: 'waves-effect waves-light btn'}  %>
   </div>
 <% end %>

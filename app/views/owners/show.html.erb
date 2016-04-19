@@ -1,5 +1,7 @@
+
+<h1><%=@owner.name%></h1>
 <p>
-  <%= error %>
+  <%= notice %>
 </p>
 
 <p>
@@ -8,9 +10,23 @@
 </p>
 
 <p>
+  <strong>Pet Names:</strong>
+  <% @owner.pets.each do |pet| %>
+    <div class="chip">
+      <img src="http://placebear.com/50/50" alt="Picture of pet named <%= pet.name %>">
+      <%= link_to pet.name, pet %>
+    </div>
+  <% end %>
+</p>
+
+
+<p>
   <strong>Notes:</strong>
   <%= @owner.notes %>
 </p>
 
-<%= link_to 'Edit', edit_owner_path(@owner) %> |
-<%= link_to 'Back', owners_path %>
+<%= link_to 'Add Pet', new_owner_pet_path(@owner), class: 'waves-effect waves-light btn' %>
+<%= link_to 'Pets', owner_pets_path(@owner), class: 'waves-effect waves-light btn' %>
+
+<%= link_to 'Edit', edit_owner_path(@owner), class: 'waves-effect waves-teal btn-flat' %>
+<%= link_to 'Back', owners_path, class: 'waves-effect waves-teal btn-flat' %>
