@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
-  get 'visits/create'
+  get 'reports/new'
+  post 'reports/create'
 
-  get 'login' => "session#new"
-  post 'login' => "session#create"
-  delete 'logout' => "session#destroy"
+  devise_for :users
+
+  get "visits/create"
+
+  get "login" => "session#new"
+  post "login" => "session#create"
+  delete "logout" => "session#destroy"
 
   resources :owners do
     resources :pets, shallow: true
@@ -12,6 +17,9 @@ Rails.application.routes.draw do
   resources :pets do
     resources :visits, shallow: true
   end
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 
   root "owners#index"
 end

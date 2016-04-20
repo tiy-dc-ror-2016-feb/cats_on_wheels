@@ -27,7 +27,7 @@ class OwnersController < ApplicationController
     @owner = Owner.new(owner_params)
 
     if @owner.save
-      redirect_to @owner, error: 'Owner was successfully created.'
+      redirect_to @owner, error: "Owner was successfully created."
     else
       render :new
     end
@@ -38,7 +38,7 @@ class OwnersController < ApplicationController
   def update
     respond_to do |format|
       if @owner.update(owner_params)
-        format.html { redirect_to @owner, notice: 'Owner was successfully updated.' }
+        format.html { redirect_to @owner, notice: "Owner was successfully updated." }
         format.json { render :show, status: :ok, location: @owner }
       else
         format.html { render :edit }
@@ -52,19 +52,20 @@ class OwnersController < ApplicationController
   def destroy
     @owner.destroy
     respond_to do |format|
-      format.html { redirect_to owners_url, notice: 'Owner was successfully destroyed.' }
+      format.html { redirect_to owners_url, notice: "Owner was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_owner
-      @owner = Owner.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def owner_params
-      params.require(:owner).permit(:name, :notes)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_owner
+    @owner = Owner.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def owner_params
+    params.require(:owner).permit(:name, :notes)
+  end
 end

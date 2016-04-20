@@ -29,7 +29,7 @@ class PetsController < ApplicationController
 
     respond_to do |format|
       if @pet.save
-        format.html { redirect_to [@owner, @pet], notice: 'Pet was successfully created.' }
+        format.html { redirect_to [@owner, @pet], notice: "Pet was successfully created." }
         format.json { render :show, status: :created, location: @pet }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class PetsController < ApplicationController
   def update
     respond_to do |format|
       if @pet.update(pet_params)
-        format.html { redirect_to [@owner, @pet], notice: 'Pet was successfully updated.' }
+        format.html { redirect_to [@owner, @pet], notice: "Pet was successfully updated." }
         format.json { render :show, status: :ok, location: @pet }
       else
         format.html { render :edit }
@@ -57,22 +57,23 @@ class PetsController < ApplicationController
   def destroy
     @pet.destroy
     respond_to do |format|
-      format.html { redirect_to pets_url, notice: 'Pet was successfully destroyed.' }
+      format.html { redirect_to pets_url, notice: "Pet was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    def set_pet
-      @pet = Pet.find(params[:id])
-    end
 
-    def set_owner
-      @owner = Owner.find(params[:owner_id])
-    end
+  def set_pet
+    @pet = Pet.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def pet_params
-      params.require(:pet).permit(:owner_id, :name, :notes)
-    end
+  def set_owner
+    @owner = Owner.find(params[:owner_id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def pet_params
+    params.require(:pet).permit(:owner_id, :name, :notes)
+  end
 end

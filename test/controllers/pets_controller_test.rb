@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class PetsControllerTest < ActionController::TestCase
   setup do
@@ -17,7 +17,7 @@ class PetsControllerTest < ActionController::TestCase
   end
 
   test "should create pet" do
-    assert_difference('Pet.count') do
+    assert_difference("Pet.count") do
       post :create, pet: { name: @pet.name, notes: @pet.notes, owner_id: @pet.owner_id }
     end
 
@@ -40,7 +40,7 @@ class PetsControllerTest < ActionController::TestCase
   end
 
   test "should destroy pet" do
-    assert_difference('Pet.count', -1) do
+    assert_difference("Pet.count", -1) do
       delete :destroy, id: @pet
     end
 

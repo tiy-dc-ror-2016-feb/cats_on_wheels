@@ -8,7 +8,7 @@
 
 500.times do
   owner = Owner.create(name: FFaker::Name.name, notes: FFaker::Lorem.paragraph)
-  rand(3).to_i.times do
+  rand(1..3).to_i.times do
     pet = owner.pets.create(name: FFaker::Food.meat, notes: FFaker::BaconIpsum.paragraph)
     rand(40).to_i.times do
       Timecop.travel(rand(3000).to_i.days.ago) do

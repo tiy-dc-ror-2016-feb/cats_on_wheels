@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class OwnersControllerTest < ActionController::TestCase
   setup do
@@ -17,7 +17,7 @@ class OwnersControllerTest < ActionController::TestCase
   end
 
   test "should create owner" do
-    assert_difference('Owner.count') do
+    assert_difference("Owner.count") do
       post :create, owner: { name: @owner.name, notes: @owner.notes }
     end
 
@@ -40,7 +40,7 @@ class OwnersControllerTest < ActionController::TestCase
   end
 
   test "should destroy owner" do
-    assert_difference('Owner.count', -1) do
+    assert_difference("Owner.count", -1) do
       delete :destroy, id: @owner
     end
 

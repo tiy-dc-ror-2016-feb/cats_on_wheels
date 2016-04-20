@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class SessionControllerTest < ActionController::TestCase
   test "should get new" do
@@ -15,5 +15,4 @@ class SessionControllerTest < ActionController::TestCase
     get :delete
     assert_response :success
   end
-
 end

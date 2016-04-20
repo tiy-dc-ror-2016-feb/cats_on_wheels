@@ -9,7 +9,7 @@ class VisitsController < ApplicationController
     @visit = Visit.new(visit_params)
 
     if @visit.save
-      redirect_to @pet, error: 'Visit was successfully created.'
+      redirect_to @pet, error: "Visit was successfully created."
     else
       render :new
     end
