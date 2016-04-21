@@ -15,6 +15,7 @@ class OwnersController < ApplicationController
   # GET /owners/new
   def new
     @owner = Owner.new
+    @owner.pets.build
   end
 
   # GET /owners/1/edit
@@ -66,6 +67,6 @@ class OwnersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def owner_params
-    params.require(:owner).permit(:name, :notes)
+    params.require(:owner).permit(:name, :notes, :pet)
   end
 end
