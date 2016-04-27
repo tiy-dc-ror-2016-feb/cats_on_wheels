@@ -1,0 +1,5 @@
+var commentTable = $("#comment-table tbody");
+commentTable.prepend("<%= j render @comment %>");
+console.log(newComment);
+var newComment = commentTable.children('tr').first();
+$(newComment).css('background-color', 'red');

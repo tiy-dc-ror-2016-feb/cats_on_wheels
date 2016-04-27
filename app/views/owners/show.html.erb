@@ -20,10 +20,27 @@
 </p>
 
 
-<p>
-  <strong>Notes:</strong>
-  <%= @owner.notes %>
-</p>
+<h4>Comments</h4>
+<%= link_to "add a comments",  new_owner_comment_path(@owner),remote: true, class: "btn btn-primary" %>
+<%= link_to "Refresh Comments",  "#", id: 'get-comments-btn', class: "btn btn-primary", data: {"disable-with": "...working..."} %>
+<table id="comment-table">
+  <thead>
+    <th>
+      Comment
+    </th>
+    <th>
+      Who
+    </th>
+    <th>
+      When
+    </th>
+  </thead>
+  <tbody>
+    <% @owner.comments.order(id: :desc).each do |comment| %>
+      <%= render comment %>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Add Pet', new_owner_pet_path(@owner), class: 'waves-effect waves-light btn' %>
 <%= link_to 'Pets', owner_pets_path(@owner), class: 'waves-effect waves-light btn' %>

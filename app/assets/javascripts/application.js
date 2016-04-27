@@ -18,4 +18,21 @@
 //
 $(document).ready(function() {
     $('select').material_select();
+
+    $("#get-comments-btn").click(function(){
+      $.ajax({
+        url: "/owners/1/comments.json",
+        success: function(data){
+          var commentTable = $("#comment-table tbody");
+          commentTable.html("");
+          data.forEach(function(comment){
+            commentTable.append(
+              "<tr><td>"+ comment.body +"</td><td></td><td>"+ comment.created_at +"</td></tr>"
+            );
+          })
+        }
+      })
+    })
+
+
 });

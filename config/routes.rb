@@ -12,7 +12,10 @@ Rails.application.routes.draw do
 
   resources :owners do
     resources :pets, shallow: true
+    resources :comments, shallow: true
   end
+
+  resources :comments
 
   resources :pets do
     resources :visits, shallow: true

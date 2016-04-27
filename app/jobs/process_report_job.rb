@@ -72,6 +72,6 @@ class ProcessReportJob < ActiveJob::Base
 
   def perform(owner)
     voice = VOICES.split("\n").sample
-    `say -v '#{voice}' -r #{rand(150..500)} #{owner.name}`
+    `say -v '#{voice}' -r #{rand(150..500)} #{rand(100)}`
   end
 end

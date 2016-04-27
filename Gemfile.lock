@@ -92,6 +92,8 @@ GEM
     mime-types-data (3.2016.0221)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
+    minitest-focus (1.1.2)
+      minitest (>= 4, < 6)
     multi_json (1.11.2)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
@@ -195,6 +197,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   materialize-sass
+  minitest-focus
   pg
   pry
   rails (= 4.2.6)

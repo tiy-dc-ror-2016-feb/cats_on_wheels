@@ -42,6 +42,7 @@ group :development, :test do
   gem "sqlite3"
   gem "ffaker"
   gem "timecop"
+  gem "minitest-focus"
 end
 
 group :development do
